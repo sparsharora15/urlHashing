@@ -1,0 +1,26 @@
+views/index.ejs
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Hashing</title>
+</head>
+<body>
+  <h1>URL Hashing</h1>
+  
+  <% if (hashedUrl) { %>
+    <p>Hashed URL: <%= hashedUrl %></p>
+  <% } %>
+
+  <form action="/generate" method="post">
+    <label for="longUrl">Enter Long URL:</label>
+    <input type="text" name="longUrl" required>
+    <button type="submit">Generate Hash</button>
+  </form>
+  
+  <!-- Add this link to redirect to the homepage -->
+  <a href="/home">Go to Home</a>
+</body>
+</html>
