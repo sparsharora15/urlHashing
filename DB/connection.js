@@ -1,13 +1,17 @@
-const mongoose = require('mongoose')
-const connectionUrl = process.env.connectionUri || "mongodb+srv://sparsharora:sparsharora15@cluster0.znskbqc.mongodb.net/Url?retryWrites=true&w=majori"
+const mongoose = require('mongoose');
 
-exports.connect = async()=>{
-    try{
-    await mongoose.connect(connectionUrl, { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 30000 });
+const connectionUrl = "mongodb+srv://sparsharora:sparsharora15@cluster0.znskbqc.mongodb.net/Url?retryWrites=true&w=majori";
 
-    console.log("connnected to db");
-}
-catch(e){
-    console.log(e);
-}
-}
+exports.connect = async () => {
+    try {
+        await mongoose.connect(connectionUrl, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            serverSelectionTimeoutMS: 30000
+        });
+
+        console.log("Connected to MongoDB");
+    } catch (error) {
+        console.error("Error connecting to MongoDB:", error);
+    }
+};
