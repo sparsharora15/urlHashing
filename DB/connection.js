@@ -3,7 +3,8 @@ const connectionUrl = process.env.connectionUri || "mongodb+srv://sparsharora:sp
 
 exports.connect = async()=>{
     try{
-    await mongoose.connect(connectionUrl)
+    await mongoose.connect(connectionUrl, { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 30000 });
+
     console.log("connnected to db");
 }
 catch(e){
